@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>马乐 | 大数据技术 · 个人主页</title>
+<meta name="description" content="马乐,济南幼儿师范高等专科学校大数据技术专业在校生,热爱编程与竞赛,多次获国家级、省级奖项。">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- 背景层 -->
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<canvas id="particles"></canvas>
+
+<!-- 导航 -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-mark">ML</span>
+      <span class="logo-text">Ma Le</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about" data-link>关于</a>
+      <a href="#skills" data-link>技能</a>
+      <a href="#projects" data-link>项目</a>
+      <a href="#timeline" data-link>经历</a>
+      <a href="#awards" data-link>成果</a>
+      <a href="#contact" data-link>联系</a>
+    </nav>
+    <button class="nav-toggle" aria-label="切换菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="hero" class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">// HELLO_WORLD</div>
+    <h1 class="hero-title">
+      <span class="title-line">我是</span>
+      <span class="title-name" data-text="马乐">马乐</span>
+    </h1>
+    <p class="hero-sub">
+      <span class="typed-text" id="typed"></span><span class="cursor">|</span>
+    </p>
+    <div class="hero-meta">
+      <span class="meta-item"><i>·</i> 大数据技术专业</span>
+      <span class="meta-item"><i>·</i> 济南幼儿师范高等专科学校</span>
+      <span class="meta-item"><i>·</i> 数智科技产业学院</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#awards" class="btn btn-primary">查看成果</a>
+      <a href="#contact" class="btn btn-ghost">联系我</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- 关于 -->
+<section id="about" class="section">
+  <div class="section-head reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">关于我</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>你好,我是<strong>马乐</strong>。一名就读于<strong>济南幼儿师范高等专科学校 数智科技产业学院</strong>大数据技术1班的在校大三学生。</p>
+      <p>我热爱编程与技术探索,在校期间学习并熟练掌握了 <strong>JavaScript、React、Node.js、Python</strong> 等主流技术栈,并多次代表学校参加国家级、省级学科竞赛,累计获得国家级二等奖 1 项、省级一等奖 1 项、省级二等奖 3 项、省级三等奖 4 项。</p>
+      <p>课外我喜欢<strong>追剧看综艺</strong>,也热爱<strong>citywalk</strong>——在城市的街巷中漫步,捕捉生活中的细节与灵感。</p>
+    </div>
+    <div class="about-card reveal glass">
+      <div class="card-row"><span class="k">姓名</span><span class="v">马乐</span></div>
+      <div class="card-row"><span class="k">身份</span><span class="v">在校大三学生</span></div>
+      <div class="card-row"><span class="k">专业</span><span class="v">大数据技术</span></div>
+      <div class="card-row"><span class="k">学校</span><span class="v">济南幼儿师范高等专科学校</span></div>
+      <div class="card-row"><span class="k">学院</span><span class="v">数智科技产业学院 · 大数据技术1班</span></div>
+      <div class="card-row"><span class="k">志愿时长</span><span class="v">312 小时</span></div>
+    </div>
+  </div>
+
+  <!-- 数据统计 -->
+  <div class="stats reveal">
+    <div class="stat-item">
+      <span class="stat-num" data-count="9">0</span>
+      <span class="stat-label">竞赛获奖</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-count="1">0</span>
+      <span class="stat-label">国家级奖项</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-count="4">0</span>
+      <span class="stat-label">熟练技能</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-count="312">0</span>
+      <span class="stat-label">志愿小时</span>
+    </div>
+  </div>
+</section>
+
+<!-- 技能 -->
+<section id="skills" class="section">
+  <div class="section-head reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">技能栈</h2>
+  </div>
+  <div class="skills-grid">
+    <article class="skill-card reveal glass" data-level="90">
+      <div class="skill-head">
+        <span class="skill-icon">&lt;/&gt;</span>
+        <span class="skill-name">JavaScript</span>
+        <span class="skill-pct">90%</span>
+      </div>
+      <div class="skill-bar"><span style="--w:90%"></span></div>
+      <p class="skill-desc">熟练掌握 ES6+ 语法、异步编程、DOM 操作,能够独立开发前端交互应用。</p>
+    </article>
+    <article class="skill-card reveal glass" data-level="85">
+      <div class="skill-head">
+        <span class="skill-icon">⚛</span>
+        <span class="skill-name">React</span>
+        <span class="skill-pct">85%</span>
+      </div>
+      <div class="skill-bar"><span style="--w:85%"></span></div>
+      <p class="skill-desc">熟悉组件化思想、Hooks、状态管理,能构建可复用的 UI 组件库。</p>
+    </article>
+    <article class="skill-card reveal glass" data-level="80">
+      <div class="skill-head">
+        <span class="skill-icon">⬢</span>
+        <span class="skill-name">Node.js</span>
+        <span class="skill-pct">80%</span>
+      </div>
+      <div class="skill-bar"><span style="--w:80%"></span></div>
+      <p class="skill-desc">能使用 Express / Koa 搭建后端接口,理解中间件机制与异步 I/O。</p>
+    </article>
+    <article class="skill-card reveal glass" data-level="80">
+      <div class="skill-head">
+        <span class="skill-icon">π</span>
+        <span class="skill-name">Python</span>
+        <span class="skill-pct">80%</span>
+      </div>
+      <div class="skill-bar"><span style="--w:80%"></span></div>
+      <p class="skill-desc">掌握 Python 语法与数据处理库,用于数据分析、爬虫与算法实现。</p>
+    </article>
+  </div>
+
+  <!-- 大数据专业栈 -->
+  <div class="section-sub reveal">
+    <span class="sub-label">// BIG_DATA_STACK</span>
+    <h3 class="sub-title">大数据专业栈</h3>
+    <p class="sub-desc">围绕数据采集、存储、计算、可视化的完整链路,熟练使用的专业工具与框架。</p>
+  </div>
+  <div class="bigdata-grid">
+    <div class="bd-item reveal glass">
+      <span class="bd-icon">⋂</span>
+      <div class="bd-body">
+        <h4>SQL · MySQL</h4>
+        <p>熟练编写复杂查询、多表联接、窗口函数,理解索引优化与执行计划。</p>
+      </div>
+      <span class="bd-level">熟练</span>
+    </div>
+    <div class="bd-item reveal glass">
+      <span class="bd-icon">▤</span>
+      <div class="bd-body">
+        <h4>Hadoop · HDFS</h4>
+        <p>掌握分布式存储与 MapReduce 计算模型,理解大数据处理架构原理。</p>
+      </div>
+      <span class="bd-level">掌握</span>
+    </div>
+    <div class="bd-item reveal glass">
+      <span class="bd-icon">⚡</span>
+      <div class="bd-body">
+        <h4>Spark</h4>
+        <p>使用 Spark SQL / RDD 进行内存级数据处理,熟悉批处理与流计算。</p>
+      </div>
+      <span class="bd-level">掌握</span>
+    </div>
+    <div class="bd-item reveal glass">
+      <span class="bd-icon">◊</span>
+      <div class="bd-body">
+        <h4>Pandas · NumPy</h4>
+        <p>熟练进行数据清洗、变换、聚合分析,处理结构化数据与多维数组。</p>
+      </div>
+      <span class="bd-level">熟练</span>
+    </div>
+    <div class="bd-item reveal glass">
+      <span class="bd-icon">◢</span>
+      <div class="bd-body">
+        <h4>Matplotlib · ECharts</h4>
+        <p>使用 Python 与前端可视化库呈现数据洞察,理解图表选型与设计。</p>
+      </div>
+      <span class="bd-level">熟练</span>
+    </div>
+    <div class="bd-item reveal glass">
+      <span class="bd-icon">∞</span>
+      <div class="bd-body">
+        <h4>机器学习基础</h4>
+        <p>理解监督/无监督学习、特征工程与模型评估,使用 scikit-learn 实践。</p>
+      </div>
+      <span class="bd-level">入门</span>
+    </div>
+  </div>
+</section>
+
+<!-- 竞赛项目详情 -->
+<section id="projects" class="section">
+  <div class="section-head reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">竞赛项目详情</h2>
+  </div>
+  <p class="section-lead reveal">将 8 项学科竞赛作为项目案例展开,呈现项目内容、技术栈与个人收获。<span class="note">* 项目内容为基于赛题的概要描述,可在后续替换为更具体的细节。</span></p>
+  <div class="projects-grid">
+    <article class="project-card reveal glass">
+      <div class="project-head">
+        <span class="project-rank rank-national">国家二等奖</span>
+        <span class="project-date">2026.08</span>
+      </div>
+      <h3 class="project-title">智能机器人创意方案设计与实现</h3>
+      <p class="project-event">第九届中国高校智能机器人创意大赛</p>
+      <p class="project-desc">围绕"创意机器人"主题,完成从方案构思、结构设计到控制程序实现的完整闭环,在全国总决赛中展示方案创新性与技术完成度。</p>
+      <div class="project-tags">
+        <span>嵌入式控制</span><span>Arduino/C</span><span>传感器融合</span><span>团队协作</span>
+      </div>
+      <div class="project-role">
+        <span class="role-label">角色</span>核心成员 · 负责控制逻辑与方案文档
+      </div>
+    </article>
+
+    <article class="project-card reveal glass">
+      <div class="project-head">
+        <span class="project-rank rank-pro1">省级一等奖</span>
+        <span class="project-date">2026.06</span>
+      </div>
+      <h3 class="project-title">智能机器人控制与任务实现</h3>
+      <p class="project-event">山东省高校智能机器人竞赛</p>
+      <p class="project-desc">针对任务型机器人赛项,设计路径规划与识别算法,在限定时间内完成识别、抓取、搬运等任务,获省级一等奖。</p>
+      <div class="project-tags">
+        <span>路径规划</span><span>视觉识别</span><span>PID控制</span><span>Python</span>
+      </div>
+      <div class="project-role">
+        <span class="role-label">角色</span>算法实现 · 负责视觉与控制模块
+      </div>
+    </article>
+
+    <article class="project-card reveal glass">
+      <div class="project-head">
+        <span class="project-rank rank-pro2">省级二等奖</span>
+        <span class="project-date">2025.12</span>
+      </div>
+      <h3 class="project-title">电子系统综合设计</h3>
+      <p class="project-event">山东省大学生电子设计大赛</p>
+      <p class="project-desc">围绕命题完成模拟+数字混合电路设计、PCB 制作与系统调试,在限定指标下实现稳定输出,获省级二等奖。</p>
+      <div class="project-tags">
+        <span>模拟电路</span><span>STM32</span><span>PCB设计</span><span>信号处理</span>
+      </div>
+      <div class="project-role">
+        <span class="role-label">角色</span>硬件调试 · 负责电路实现与测试
+      </div>
+    </article>
+
+    <article class="project-card reveal glass">
+      <div class="project-head">
+        <span class="project-rank rank-pro2">省级二等奖</span>
+        <span class="project-date">2025.11</span>
+      </div>
+      <h3 class="project-title">智能技术应用方案设计</h3>
+      <p class="project-event">山东省大学生智能技术应用设计大赛</p>
+      <p class="project-desc">结合物联网与智能算法,设计一套面向实际场景的应用方案,完成原型搭建与功能演示,获省级二等奖。</p>
+      <div class="project-tags">
+        <span>物联网</span><span>智能算法</span><span>原型设计</span><span>答辩展示</span>
+      </div>
+      <div class="project-role">
+        <span class="role-label">角色</span>方案设计 · 负责整体架构与答辩
+      </div>
+    </article>
+
+    <article class="project-card reveal glass">
+      <div class="project-head">
+        <span class="project-rank rank-pro3">省级三等奖</span>
+        <span class="project-date">2025.08</span>
+      </div>
+      <h3 class="project-title">嵌入式芯片与系统设计</h3>
+      <p class="project-event">第八届全国大学生嵌入式芯片与系统设计竞赛</p>
+      <p class="project-desc">基于嵌入式 MCU 完成功能系统设计,涵盖外设驱动、低功耗优化与通信协议实现,获省级三等奖。</p>
+      <div class="project-tags">
+        <span>嵌入式MCU</span><span>外设驱动</span><span>低功耗</span><span>通信协议</span>
+      </div>
+      <div class="project-role">
+        <span class="role-label">角色</span>固件开发 · 负责驱动与协议层
+      </div>
+    </article>
+
+    <article class="project-card reveal glass">
+      <div class="project-head">
+        <span class="project-rank rank-pro3">省级三等奖</span>
+        <span class="project-date">2025.11</span>
+      </div>
+      <h3 class="project-title">物联网创新应用原型</h3>
+      <p class="project-event">第十二届山东省大学生物联网创造力大赛</p>
+      <p class="project-desc">设计端-边-云协同的物联网应用原型,完成感知层采集、网络层传输与应用层展示,获省级三等奖。</p>
+      <div class="project-tags">
+        <span>物联网架构</span><span>传感器</span><span>无线通信</span><span>云端对接</span>
+      </div>
+      <div class="project-role">
+        <span class="role-label">角色</span>应用开发 · 负责云端与展示层
+      </div>
+    </article>
+
+    <article class="project-card reveal glass">
+      <div class="project-head">
+        <span class="project-rank rank-pro3">省级三等奖</span>
+        <span class="project-date">2025.12</span>
+      </div>
+      <h3 class="project-title">创新方法实践与答辩</h3>
+      <p class="project-event">山东省大学生创新方法大赛</p>
+      <p class="project-desc">运用 TRIZ 等创新方法分析工程问题,提出创新解并进行方案答辩,锻炼系统化创新思维,获省级三等奖。</p>
+      <div class="project-tags">
+        <span>TRIZ</span><span>问题分析</span><span>创新思维</span><span>答辩</span>
+      </div>
+      <div class="project-role">
+        <span class="role-label">角色</span>主力成员 · 负责问题分析与答辩
+      </div>
+    </article>
+
+    <article class="project-card reveal glass">
+      <div class="project-head">
+        <span class="project-rank rank-pro3">省级三等奖</span>
+        <span class="project-date">2025.12</span>
+      </div>
+      <h3 class="project-title">新一代信息技术应用方案</h3>
+      <p class="project-event">山东省大学生新一代信息技术创新与应用大赛</p>
+      <p class="project-desc">围绕新一代信息技术(AI/大数据/云)设计应用方案,完成需求分析、技术选型与原型实现,获省级三等奖。</p>
+      <div class="project-tags">
+        <span>AI应用</span><span>大数据</span><span>云计算</span><span>方案设计</span>
+      </div>
+      <div class="project-role">
+        <span class="role-label">角色</span>方案设计 · 负责需求与技术选型
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 经历时间线 -->
+<section id="timeline" class="section">
+  <div class="section-head reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title">校园经历</h2>
+  </div>
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-content glass">
+        <span class="tl-date">至今</span>
+        <h3>学院自律会 · 卫生部部长</h3>
+        <p>负责学院卫生检查、制度统筹与团队管理,锻炼了组织协调与领导能力。</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-content glass">
+        <span class="tl-date">至今</span>
+        <h3>班级副班长</h3>
+        <p>协助班长处理班级日常事务,组织班级活动,服务同学、传递信息。</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-content glass">
+        <span class="tl-date">2025 — 2026</span>
+        <h3>学科竞赛主力成员</h3>
+        <p>作为学校代表参与智能机器人、电子设计、物联网、嵌入式等 9 项竞赛,屡获佳绩。</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-content glass">
+        <span class="tl-date">累计</span>
+        <h3>校级优秀志愿者 · 312 小时</h3>
+        <p>多次获得校级优秀志愿者称号,累计志愿服务时长达 312 小时。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 成果奖项 -->
+<section id="awards" class="section">
+  <div class="section-head reveal">
+    <span class="section-num">05</span>
+    <h2 class="section-title">获奖成果</h2>
+  </div>
+
+  <!-- 获奖分布可视化 -->
+  <div class="awards-viz reveal glass">
+    <div class="viz-chart">
+      <svg viewBox="0 0 200 200" class="donut" id="donutChart">
+        <circle class="donut-bg" cx="100" cy="100" r="80"></circle>
+        <!-- 段由 JS 绘制 -->
+        <g id="donutSegments"></g>
+      </svg>
+      <div class="viz-center">
+        <span class="viz-total" data-count="9">0</span>
+        <span class="viz-label">总获奖数</span>
+      </div>
+    </div>
+    <div class="viz-legend">
+      <div class="legend-item">
+        <span class="legend-dot dot-national"></span>
+        <span class="legend-name">国家级</span>
+        <span class="legend-val">1 项</span>
+        <span class="legend-pct">11.1%</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot dot-pro1"></span>
+        <span class="legend-name">省级一等奖</span>
+        <span class="legend-val">1 项</span>
+        <span class="legend-pct">11.1%</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot dot-pro2"></span>
+        <span class="legend-name">省级二等奖</span>
+        <span class="legend-val">2 项</span>
+        <span class="legend-pct">22.2%</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot dot-pro3"></span>
+        <span class="legend-name">省级三等奖</span>
+        <span class="legend-val">4 项</span>
+        <span class="legend-pct">44.5%</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot dot-school"></span>
+        <span class="legend-name">校级 / 奖学金</span>
+        <span class="legend-val">1 项</span>
+        <span class="legend-pct">11.1%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="awards-list">
+    <div class="award-item reveal glass level-national">
+      <span class="award-date">2026.08</span>
+      <span class="award-tag tag-national">国家级</span>
+      <div class="award-body">
+        <h3>第九届中国高校智能机器人创意大赛 · <span class="award-rank">国家二等奖</span></h3>
+        <p>参与机器人创意方案设计与实现,在全国总决赛中斩获二等奖。</p>
+      </div>
+    </div>
+    <div class="award-item reveal glass level-provincial-1">
+      <span class="award-date">2026.06</span>
+      <span class="award-tag tag-pro1">省级</span>
+      <div class="award-body">
+        <h3>山东省高校智能机器人竞赛 · <span class="award-rank">省级一等奖</span></h3>
+        <p>在省级机器人竞赛中表现突出,获省级一等奖。</p>
+      </div>
+    </div>
+    <div class="award-item reveal glass level-provincial-2">
+      <span class="award-date">2025.12</span>
+      <span class="award-tag tag-pro2">省级</span>
+      <div class="award-body">
+        <h3>山东省大学生电子设计大赛 · <span class="award-rank">省级二等奖</span></h3>
+        <p>围绕电子系统设计展开角逐,获省级二等奖。</p>
+      </div>
+    </div>
+    <div class="award-item reveal glass level-provincial-2">
+      <span class="award-date">2025.11</span>
+      <span class="award-tag tag-pro2">省级</span>
+      <div class="award-body">
+        <h3>山东省大学生智能技术应用设计大赛 · <span class="award-rank">省级二等奖</span></h3>
+        <p>智能技术应用方案设计与实现,获省级二等奖。</p>
+      </div>
+    </div>
+    <div class="award-item reveal glass level-provincial-3">
+      <span class="award-date">2025.08</span>
+      <span class="award-tag tag-pro3">省级</span>
+      <div class="award-body">
+        <h3>第八届全国大学生嵌入式芯片与系统设计竞赛 · <span class="award-rank">省级三等奖</span></h3>
+        <p>嵌入式芯片与系统综合设计,获省级三等奖。</p>
+      </div>
+    </div>
+    <div class="award-item reveal glass level-provincial-3">
+      <span class="award-date">2025.11</span>
+      <span class="award-tag tag-pro3">省级</span>
+      <div class="award-body">
+        <h3>第十二届山东省大学生物联网创造力大赛 · <span class="award-rank">省级三等奖</span></h3>
+        <p>物联网创新方案与原型实现,获省级三等奖。</p>
+      </div>
+    </div>
+    <div class="award-item reveal glass level-provincial-3">
+      <span class="award-date">2025.12</span>
+      <span class="award-tag tag-pro3">省级</span>
+      <div class="award-body">
+        <h3>山东省大学生创新方法大赛 · <span class="award-rank">省级三等奖</span></h3>
+        <p>面向创新方法的实践与答辩,获省级三等奖。</p>
+      </div>
+    </div>
+    <div class="award-item reveal glass level-provincial-3">
+      <span class="award-date">2025.12</span>
+      <span class="award-tag tag-pro3">省级</span>
+      <div class="award-body">
+        <h3>山东省大学生新一代信息技术创新与应用大赛 · <span class="award-rank">省级三等奖</span></h3>
+        <p>新一代信息技术应用方案设计,获省级三等奖。</p>
+      </div>
+    </div>
+    <div class="award-item reveal glass level-school">
+      <span class="award-date">2025.11</span>
+      <span class="award-tag tag-school">校级</span>
+      <div class="award-body">
+        <h3>校内奖学金 · <span class="award-rank">多次优秀志愿者</span></h3>
+        <p>获得校内奖学金,并多次获评校级优秀志愿者。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系 -->
+<section id="contact" class="section">
+  <div class="section-head reveal">
+    <span class="section-num">06</span>
+    <h2 class="section-title">联系我</h2>
+  </div>
+  <div class="contact-wrap reveal glass">
+    <p class="contact-lead">如果你对我的经历、技能或合作机会感兴趣,欢迎通过下方邮箱与我联系。</p>
+    <a href="mailto:2633094744@qq.com" class="contact-email">
+      <span class="email-icon">✉</span>
+      2633094744@qq.com
+    </a>
+    <div class="contact-extra">
+      <span>· 济南幼儿师范高等专科学校</span>
+      <span>· 大数据技术专业</span>
+    </div>
+  </div>
+</section>
+
+<!-- 理念 & 规划 -->
+<section id="vision" class="section">
+  <div class="section-head reveal">
+    <span class="section-num">07</span>
+    <h2 class="section-title">理念 &amp; 规划</h2>
+  </div>
+
+  <!-- 个人理念引言 -->
+  <div class="manifesto reveal">
+    <span class="manifesto-quote">“</span>
+    <p class="manifesto-text">以行动丈量热爱,以数据理解世界。<br>愿做脚踏实地的建设者,在技术浪潮里保持好奇与温度。</p>
+    <span class="manifesto-attr">— 马乐</span>
+  </div>
+
+  <!-- 学习方法论 + 未来规划 -->
+  <div class="vision-grid">
+    <div class="vision-col reveal glass">
+      <div class="vision-head">
+        <span class="vision-icon">◆</span>
+        <h3>学习方法论</h3>
+      </div>
+      <ul class="vision-list">
+        <li><strong>以赛促学</strong>把竞赛作为真实问题场景,倒逼自己快速建立完整知识闭环。</li>
+        <li><strong>项目驱动</strong>从需求出发选技术,在实践中理解原理,而非先学后用。</li>
+        <li><strong>文档复盘</strong>每个项目结束做结构化笔记,沉淀技术选型与踩坑记录。</li>
+        <li><strong>刻意练习</strong>针对薄弱环节集中突破,而非重复舒适区内的任务。</li>
+      </ul>
+    </div>
+
+    <div class="vision-col reveal glass">
+      <div class="vision-head">
+        <span class="vision-icon">→</span>
+        <h3>未来规划</h3>
+      </div>
+      <ul class="vision-list">
+        <li><strong>短期</strong>深耕 Spark / Flink 流批一体,完成 1-2 个完整大数据处理项目。</li>
+        <li><strong>方向</strong>面向数据开发 / 大数据工程师岗位,兼顾后端工程能力。</li>
+        <li><strong>持续</strong>系统补强算法与分布式系统基础,关注数据治理与质量工程。</li>
+        <li><strong>愿景</strong>成为能从数据中提炼价值、并把工程做扎实的实践型工程师。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 兴趣 -->
+<section id="interests" class="section section-mini">
+  <div class="section-head reveal">
+    <span class="section-num">08</span>
+    <h2 class="section-title">兴趣 &amp; 生活</h2>
+  </div>
+  <div class="interest-grid">
+    <div class="interest-card reveal glass">
+      <span class="interest-emoji">🎬</span>
+      <h3>追剧看综艺</h3>
+      <p>喜欢用光影故事放松大脑,在剧情与笑声里寻找灵感。</p>
+    </div>
+    <div class="interest-card reveal glass">
+      <span class="interest-emoji">🚶</span>
+      <h3>Citywalk</h3>
+      <p>在城市街巷间漫步,观察建筑、人群与生活,捕捉城市的呼吸。</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 马乐 · Ma Le</span>
+    <span class="footer-tag">Designed &amp; Built with ❤ in Jinan</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
