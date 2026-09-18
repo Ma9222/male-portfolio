@@ -60,7 +60,7 @@ const statIO = new IntersectionObserver((entries) => {
     statIO.unobserve(el);
   });
 }, { threshold: 0.5 });
-document.querySelectorAll('.stat-num, .viz-total').forEach((el) => statIO.observe(el));
+document.querySelectorAll('.stat-num, .viz-total, .ps-num[data-count]').forEach((el) => statIO.observe(el));
 
 /* ===== 导航栏滚动效果 ===== */
 const nav = document.querySelector('.nav');
