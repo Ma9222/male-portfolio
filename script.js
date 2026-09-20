@@ -40,27 +40,47 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+// 兜底：800ms 后仍未显示的首屏元素强制可见
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach((el) => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('visible');
+  });
+}, 800);
 
 /* ===== 数字计数动画 ===== */
+const countTargets = document.querySelectorAll('.stat-num, .viz-total, .ps-num[data-count]');
+function runCount(el) {
+  const target = +el.dataset.count;
+  if (el.dataset.counted) return;
+  el.dataset.counted = '1';
+  const dur = 1600;
+  const start = performance.now();
+  function step(now) {
+    const t = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.floor(ease * target);
+    if (t < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(step);
+}
 const statIO = new IntersectionObserver((entries) => {
   entries.forEach((e) => {
     if (!e.isIntersecting) return;
-    const el = e.target;
-    const target = +el.dataset.count;
-    const dur = 1600;
-    const start = performance.now();
-    function step(now) {
-      const t = Math.min((now - start) / dur, 1);
-      const ease = 1 - Math.pow(1 - t, 3);
-      el.textContent = Math.floor(ease * target);
-      if (t < 1) requestAnimationFrame(step);
-      else el.textContent = target;
-    }
-    requestAnimationFrame(step);
-    statIO.unobserve(el);
+    runCount(e.target);
+    statIO.unobserve(e.target);
   });
-}, { threshold: 0.5 });
-document.querySelectorAll('.stat-num, .viz-total, .ps-num[data-count]').forEach((el) => statIO.observe(el));
+}, { threshold: 0.1 });
+countTargets.forEach((el) => statIO.observe(el));
+// 兜底：500ms 后对仍在视口内且未计数的强制执行
+setTimeout(() => {
+  countTargets.forEach((el) => {
+    if (el.dataset.counted) return;
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) runCount(el);
+  });
+}, 500);
 
 /* ===== 导航栏滚动效果 ===== */
 const nav = document.querySelector('.nav');
