@@ -56,14 +56,16 @@ function runCount(el) {
   el.dataset.counted = '1';
   const dur = 1600;
   const start = performance.now();
-  function step(now) {
+  const timer = setInterval(() => {
+    const now = performance.now();
     const t = Math.min((now - start) / dur, 1);
     const ease = 1 - Math.pow(1 - t, 3);
     el.textContent = Math.floor(ease * target);
-    if (t < 1) requestAnimationFrame(step);
-    else el.textContent = target;
-  }
-  requestAnimationFrame(step);
+    if (t >= 1) {
+      el.textContent = target;
+      clearInterval(timer);
+    }
+  }, 30);
 }
 const statIO = new IntersectionObserver((entries) => {
   entries.forEach((e) => {
@@ -73,14 +75,22 @@ const statIO = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 countTargets.forEach((el) => statIO.observe(el));
-// 兜底：500ms 后对仍在视口内且未计数的强制执行
+// 兜底：800ms 后对仍在视口内且未计数的强制执行
 setTimeout(() => {
   countTargets.forEach((el) => {
     if (el.dataset.counted) return;
     const r = el.getBoundingClientRect();
     if (r.top < window.innerHeight && r.bottom > 0) runCount(el);
   });
-}, 500);
+}, 800);
+// 终极兜底：2.5s 后所有计数元素若仍为 0 则直接显示目标值
+setTimeout(() => {
+  countTargets.forEach((el) => {
+    if (el.textContent === '0' && el.dataset.count) {
+      el.textContent = el.dataset.count;
+    }
+  });
+}, 2500);
 
 /* ===== 导航栏滚动效果 ===== */
 const nav = document.querySelector('.nav');
