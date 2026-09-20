@@ -999,66 +999,153 @@ section { position: relative; z-index: 2; }
 /* Featured 大卡片 */
 .project-featured {
   grid-column: 1 / -1;
-  padding: 36px 36px 28px;
-  border: 1px solid rgba(244, 114, 182, 0.35) !important;
-  background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(129, 140, 248, 0.06), rgba(94, 234, 212, 0.06));
+  padding: 44px 44px 36px;
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(135deg, rgba(244, 114, 182, 0.14), rgba(129, 140, 248, 0.08) 50%, rgba(94, 234, 212, 0.08)),
+    radial-gradient(circle at 15% 20%, rgba(244, 114, 182, 0.18), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(94, 234, 212, 0.14), transparent 40%);
   overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 0 0 1px rgba(244, 114, 182, 0.35),
+    0 20px 60px -20px rgba(244, 114, 182, 0.3);
 }
+/* 动态背景网格 */
+.project-featured::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(244, 114, 182, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129, 140, 248, 0.07) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+  animation: gridDrift 20s linear infinite;
+}
+@keyframes gridDrift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 60px 60px, 60px 60px; }
+}
+/* 顶部扫描光线 */
 .project-featured::after {
   content: ''; position: absolute;
   top: 0; left: 0; right: 0; height: 3px;
-  background: var(--grad);
-  animation: featuredPulse 3s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, var(--accent-3), var(--accent-2), var(--accent), transparent);
+  background-size: 200% 100%;
+  animation: featuredScan 3s linear infinite, featuredGlow 3s ease-in-out infinite;
   z-index: 4;
 }
-@keyframes featuredPulse {
-  0%, 100% { opacity: 0.6; box-shadow: 0 0 18px rgba(244, 114, 182, 0.35); }
-  50% { opacity: 1; box-shadow: 0 0 38px rgba(244, 114, 182, 0.65); }
+@keyframes featuredScan {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+@keyframes featuredGlow {
+  0%, 100% { box-shadow: 0 0 18px rgba(244, 114, 182, 0.35); }
+  50% { box-shadow: 0 0 42px rgba(244, 114, 182, 0.7); }
+}
+/* 四角科技装饰线 */
+.project-feat-body::before,
+.project-feat-body::after {
+  content: ''; position: absolute;
+  width: 18px; height: 18px;
+  border: 2px solid var(--accent-3);
+  z-index: 3;
+  pointer-events: none;
+}
+.project-feat-body::before {
+  top: -14px; left: -14px;
+  border-right: none; border-bottom: none;
+  border-top-left-radius: 6px;
+}
+.project-feat-body::after {
+  bottom: -14px; right: -14px;
+  border-left: none; border-top: none;
+  border-bottom-right-radius: 6px;
 }
 .project-featured:hover {
-  border-color: rgba(244, 114, 182, 0.6) !important;
-  box-shadow: 0 18px 50px rgba(244, 114, 182, 0.18), 0 0 0 1px rgba(244, 114, 182, 0.15);
+  border-color: transparent !important;
+  box-shadow:
+    0 0 0 1px rgba(244, 114, 182, 0.6),
+    0 0 40px rgba(244, 114, 182, 0.25),
+    0 0 80px rgba(129, 140, 248, 0.15),
+    0 25px 70px -20px rgba(244, 114, 182, 0.45);
+  transform: translateY(-4px);
 }
 .project-feat-body {
-  display: flex; gap: 28px; align-items: flex-start;
-  margin-bottom: 18px;
+  display: flex; gap: 32px; align-items: flex-start;
+  margin-bottom: 22px;
   position: relative; z-index: 2;
+  padding: 4px;
 }
+/* 大图标 + 旋转光环 */
 .project-icon-lg {
-  width: 88px; height: 88px;
+  width: 96px; height: 96px;
   flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  font-size: 44px;
+  font-size: 48px;
   font-family: var(--font-mono);
   background: var(--grad);
   color: #060912;
-  border-radius: 22px;
-  box-shadow: 0 10px 30px rgba(244, 114, 182, 0.4);
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(244, 114, 182, 0.45);
   transform: rotate(-3deg);
-  transition: transform .4s cubic-bezier(.2,.7,.3,1);
+  transition: transform .5s cubic-bezier(.2,.7,.3,1);
+  position: relative;
+}
+.project-icon-lg::before {
+  content: ''; position: absolute; inset: -10px;
+  border-radius: 28px;
+  background: conic-gradient(from 0deg, var(--accent-3), var(--accent-2), var(--accent), var(--accent-3));
+  z-index: -1;
+  animation: ringSpin 6s linear infinite;
+  filter: blur(8px);
+  opacity: 0.6;
+}
+@keyframes ringSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 .project-featured:hover .project-icon-lg {
-  transform: rotate(3deg) scale(1.05);
+  transform: rotate(6deg) scale(1.08);
 }
 .project-feat-text { flex: 1; min-width: 0; }
-.project-featured .project-feat-text .project-title { font-size: 24px; margin-bottom: 6px; }
+.project-featured .project-feat-text .project-title {
+  font-size: 26px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #fff, #f472b6 60%, #818cf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 30px rgba(244, 114, 182, 0.25);
+}
 .project-featured .project-feat-text .project-desc { font-size: 14px; }
-.project-featured .project-corner { color: var(--accent-3); opacity: 0.9; }
+.project-featured .project-corner { color: var(--accent-3); opacity: 0.95; }
 
-/* FLAGSHIP 角标 */
+/* FLAGSHIP 角标 - 霓虹徽章 */
 .project-flagship {
   position: absolute;
   bottom: 22px; right: 24px;
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
-  color: var(--accent-3);
-  letter-spacing: 0.28em;
-  padding: 4px 10px;
-  border: 1px solid rgba(244, 114, 182, 0.45);
+  color: #fff;
+  letter-spacing: 0.3em;
+  padding: 6px 14px;
+  border: 1px solid var(--accent-3);
   border-radius: 4px;
-  background: rgba(244, 114, 182, 0.1);
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.25), rgba(129, 140, 248, 0.15));
+  text-shadow: 0 0 8px rgba(244, 114, 182, 0.8);
+  box-shadow:
+    0 0 12px rgba(244, 114, 182, 0.4),
+    inset 0 0 8px rgba(244, 114, 182, 0.2);
   z-index: 3;
+  animation: flagshipGlow 2.5s ease-in-out infinite;
+}
+@keyframes flagshipGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(244, 114, 182, 0.4), inset 0 0 8px rgba(244, 114, 182, 0.2); }
+  50% { box-shadow: 0 0 22px rgba(244, 114, 182, 0.8), inset 0 0 12px rgba(244, 114, 182, 0.4); }
 }
 
 /* 普通卡片左上小图标 */
