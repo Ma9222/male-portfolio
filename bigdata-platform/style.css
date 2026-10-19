@@ -547,3 +547,39 @@ a.course-card:hover .course-more { opacity: 1; transform: translateX(3px); }
   .cd-nav-btn { max-width: 100%; }
   .cd-next { text-align: left; }
 }
+
+/* ==========================================
+   Lucide SVG 图标适配
+   ========================================== */
+/* 通用:所有 lucide svg 默认跟随父级颜色 */
+[data-lucide] { color: var(--accent); }
+
+/* Logo 里的 database-zap */
+.logo-mark [data-lucide] {
+  width: 16px; height: 16px;
+  stroke-width: 2.2;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* 前景 4 个大图标 */
+.prospect-icon [data-lucide] {
+  width: 28px; height: 28px;
+  stroke-width: 1.8;
+  color: var(--accent);
+}
+
+/* 职业方向卡片图标(蓝框里) */
+.job-icon [data-lucide] {
+  width: 22px; height: 22px;
+  stroke-width: 2;
+  color: var(--accent);
+}
+
+/* 软实力文字旁图标(内联) */
+.soft-skills strong [data-lucide] {
+  width: 17px; height: 17px;
+  stroke-width: 2;
+  vertical-align: -3px;
+  margin-right: 2px;
+  color: var(--accent);
+}
